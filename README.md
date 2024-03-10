@@ -1,15 +1,18 @@
 # Medicine Delivery App
 
 ## How run it
+Create .env file in root folder of your app and add
+DB_HOST=mongodb+srv://user:password@cluster0.wjlzmu8.mongodb.net/md-shop?retryWrites=true&w=majority&appName=Cluster0
+(NOT COPY, with your login and password)
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm install
 npm run start:dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4000](http://localhost:4000) with your browser to see the result.
 
 ## Overview:
 
