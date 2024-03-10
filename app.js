@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const shopRoutes = require("./routes/shopRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/shops", shopRoutes);
+app.use("/orders", orderRoutes);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Not found" });
