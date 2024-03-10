@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const shopRoutes = require("./routes/shopRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const couponRoutes = require("./routes/couponRoutes");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(express.static("public"));
 
 app.use("/shops", shopRoutes);
 app.use("/orders", orderRoutes);
+app.use("/coupons", couponRoutes);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Not found" });
