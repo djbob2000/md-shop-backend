@@ -6,6 +6,7 @@ const ProductSchema = new Schema({
   image: String,
   price: Number,
   shopId: Number,
+  createdAt: { type: Date, default: Date.now },
 });
 
 const Product = mongoose.model("product", ProductSchema);

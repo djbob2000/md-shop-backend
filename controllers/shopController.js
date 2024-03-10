@@ -22,9 +22,18 @@ exports.createProduct = async (req, res, next) => {
 
 exports.getProducts = async (req, res, next) => {
   const { shopId } = req.params;
+  const { sortBy = "name", sortOrder = "asc" } = req.query;
 
   try {
-    const products = await Product.find({ shopId });
+    const sortCriteria = {};
+
+    if (sortBy === "name") {
+      sortCriteria.name = sortOrder === "desc" ? -1 : 1;
+    } else if (sortBy === "createdAt") {
+      sortCriteria.createdAt = sortOrder === "desc" ? -1 : 1;
+    }
+
+    const products = await Product.find({ shopId }).sort(sortCriteria);
     res.json(products);
   } catch (error) {
     next(error);
